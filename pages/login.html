@@ -7,6 +7,8 @@
     <title>Login</title>
 </head>
 <body>
+    <button id="get" onclick="getInfo()" class="main-button">Show Info</button>
+
     <div id="background-band">
         <div class="main-title">
             <h1 id="tube-logo big">Tube</h1>
@@ -29,6 +31,18 @@
             <input class="main-button" type="submit" value="Confirm">
             <a class="main-button alternative" href="register.html">Register</a>
         </form>
+
+        <script>
+            const baseUrl = 'http://localhost:3000/tubekids/videos/65e8cbd529c81399978e32d0'
+            async function getInfo() {
+                const res = await fetch (baseUrl, {
+                    method: 'GET'
+                })
+                console.log(res);
+                const data = await res.json();
+                console.log(data);
+            }
+        </script>
     </div>
 
 </body>
