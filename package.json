@@ -1,0 +1,12 @@
+{
+  "name": "webprogramming-isw711-firstproject-frontend",
+  "version": "1.0.0",
+  "description": "This is the frontend for the first project of the Web Programming Course ISW711 in 2024.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
