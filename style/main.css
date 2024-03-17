@@ -17,6 +17,7 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    min-height: 250px;
 }
 
 .circle-form {
@@ -37,9 +38,9 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    min-height: 30%;
+    min-height: 32%;
 }
 
 .input-form {
@@ -52,7 +53,6 @@ form {
 
 .main-button {
     text-decoration: none;
-    margin: 5%;
     min-height: 40px;
     width: 100%;
     text-align: center;
@@ -60,13 +60,84 @@ form {
     display: flex;
     background-color: #fc6736;
     border: none;
-    border-radius: 30px;
+    border-radius: 25px;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: #efecec;
     font-size: medium;
+    transition: 0.3s;
+}
+
+.alternative {
+    background-color: #0C2D57;
+    color: #efecec;
+}
+
+.main-button:hover {
+    background-color: #0C2D57;
+    color: #fc6736;
+    cursor: pointer;
+}
+
+.alternative:hover {
+    background-color: #fc6736;
+    color: black;
 }
 
 #front-page {
-    margin-bottom: 20%;
+    margin-bottom: 18%;
+    color: #0C2D57;
+    font-size: 2.3rem;
+}
+
+.main-title {
+    display: flex;
+    align-self: center;
+    padding-left: 55px;
+    font-size: 2rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-title h1 {
+    margin: 0;
+    color: #0c2d57;
+}
+
+.main-title h1, .main-title h2 {
+    margin: 0;
+}
+
+.main-title h2 {
+    margin-left: 19px;
+    margin-top: -10%;
+    font-size: 4rem;
+    text-decoration: inherit;
+    font-style: italic;
+    font-weight: 100;
+    color: #efecec;
+    font-variant: unicase;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #efecec;
+    font-weight: 300;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 20px 20px 0px 0px;
+}
+
+.subtitle h3, .subtitle h4 {
+    margin: 1px;
+    font-weight: inherit;
+}
+
+#get {
+    width: 120px;
+    margin-left: 5%;
 }
