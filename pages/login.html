@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../style/main.css">
-    <title>Login</title>
-</head>
-<body>
-    <div id="background-band">
-        <div class="main-title">
-            <h1 id="tube-logo big">Tube</h1>
-            <h2 id="kids-logo big">Kids</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../style/main.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <div id="background-band">
+            <div class="main-title">
+                <h1 id="tube-logo big">Tube</h1>
+                <h2 id="kids-logo big">Kids</h2>
+            </div>
+            <div class="subtitle top-left">
+                <h3>Pamela Murillo</h3>
+                <h4>I Project</h4>
+                <h4>ISW-711</h4>
+            </div>
         </div>
-        <div class="subtitle top-left">
-            <h3>Pamela Murillo</h3>
-            <h4>I Project</h4>
-            <h4>ISW-711</h4>
+        <div class="circle-form">
+            <h2 id="front-page">Login</h2>
+            <form>
+                <!-- <label for="email">First name</label> -->
+                <input class="input-form" type="email" id="email" name="email" placeholder="email">
+
+                <!-- <label for="password">Password</label> -->
+                <input class="input-form password" type="password" id="password" name="password" placeholder="password">
+
+                <input class="main-button" type="submit" value="Confirm">
+                <a class="main-button" href="register.html">Register</a>
+            </form>
+
+            <!-- <script>
+                const baseUrl = 'http://localhost:3000/tubekids/videos/65e8cbd529c81399978e32d0'
+                async function getInfo() {
+                    const res = await fetch (baseUrl, {
+                        method: 'GET'
+                    })
+                    console.log(res);
+                    const data = await res.json();
+                    console.log(data);
+                }
+            </script> -->
         </div>
-    </div>
-    <div class="circle-form">
-        <h2 id="front-page">Login</h2>
-        <form>
-            <!-- <label for="email">First name</label> -->
-            <input class="input-form" type="email" id="email" name="email" placeholder="email">
 
-            <!-- <label for="password">Last name</label> -->
-            <input class="input-form password" type="password" id="password" name="password" placeholder="password">
-
-            <input class="main-button" type="submit" value="Confirm">
-            <a class="main-button" href="register.html">Register</a>
-        </form>
-
-        <script>
-            const baseUrl = 'http://localhost:3000/tubekids/videos/65e8cbd529c81399978e32d0'
-            async function getInfo() {
-                const res = await fetch (baseUrl, {
-                    method: 'GET'
-                })
-                console.log(res);
-                const data = await res.json();
-                console.log(data);
-            }
-        </script>
-    </div>
-
-    <button id="get" onclick="getInfo()" class="main-button">Show Info</button>
-
-
-</body>
+        <!-- <button id="get" onclick="getInfo()" class="main-button">Show Info</button> -->
+    </body>
 </html>
