@@ -2,7 +2,8 @@
   --color-sass--primary: #fc6736;
   --color-sass--secondary: #0C2D57;
   --color-sass--terciary: #c2c2c2;
-  --color-sass--background: #efecec; }
+  --color-sass--background: #efecec;
+  --color-sass--text: #161616; }
 
 body {
   margin: 0;
@@ -25,17 +26,17 @@ body {
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-  color: #efecec;
+  color: var(--color-sass--background);
   font-size: medium;
   transition: 0.3s; }
   .main-button :hover {
     background-color: var(--color-sass--secondary);
-    color: #fc6736;
+    color: var(--color-sass--primary);
     cursor: pointer; }
 
 .alternative {
   background-color: var(--color-sass--secondary);
-  color: #efecec; }
+  color: var(--color-sass--background); }
   .alternative :hover {
     background-color: var(--color-sass--primary);
-    color: black; }
+    color: var(--color-sass--text); }

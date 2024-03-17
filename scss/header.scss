@@ -1,3 +1,52 @@
 @import './themes.scss';
 @import './variables/colors.scss';
 @import './variables/breakpoints.scss';
+
+.nav {
+    background: var(--color-sass--primary);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .main-title {
+        flex-direction: row;
+        align-items: center;
+        padding-left: 2%;
+
+        h1, h2 {
+            font-size: 1.7rem;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-left: 5px;
+        }
+    }
+
+    nav {
+        margin-right: 2%;
+
+        .nav-button{
+            text-decoration: none;
+            padding: 0px 10px 0 10px;
+        }
+
+        ul {
+            margin-right: 2%;
+        }
+        li {
+            list-style-type: none;
+        }
+
+        .alternative:hover {
+            background: var(--color-sass--background);
+            color: var(--color-sass--text);
+
+        }
+    }
+
+    
+}
+
