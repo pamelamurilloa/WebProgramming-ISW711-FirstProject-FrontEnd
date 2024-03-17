@@ -27,17 +27,28 @@
 
     nav {
         margin-right: 2%;
+        min-width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        flex-direction: row;
 
         .nav-button{
             text-decoration: none;
-            padding: 0px 10px 0 10px;
+            margin: 0 15px 0 15px;
         }
 
         ul {
             margin-right: 2%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
         li {
             list-style-type: none;
+            margin-right: inherit;
         }
 
         .alternative:hover {
