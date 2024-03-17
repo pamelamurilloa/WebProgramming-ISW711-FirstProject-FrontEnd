@@ -25,29 +25,34 @@
         
     </header>
 
-    <content>
+    <div class="page-content">
         <div class="profiles">
             <div class="profile">
-              <img src="profile1.jpg" alt="Profile 1">
+              <img src="../utils/images/profile1.png" alt="Profile 1">
               <p class="profile-name">John Doe</p>
             </div>
             <div class="profile">
-              <img src="profile2.jpg" alt="Profile 2">
+              <img src="../utils/images/profile2.png" alt="Profile 2">
               <p class="profile-name">Jane Doe</p>
             </div>
           </div>
+
         
           <div class="popup" id="popup">
             <div class="popup-content">
-              <span class="close" id="close">&times;</span>
-              <h2>Enter PIN</h2>
-              <input type="password" placeholder="Enter PIN">
-              <button>Submit</button>
+              <h2>Introduce your pin</h2>
+                <form>
+                    <!-- <label for="pin">Pin</label> -->
+                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="pin">
+
+                    <input class="main-button" type="submit" value="Confirm">
+                    <a id="close" class="main-button">Go Back</a>
+                </form>
             </div>
           </div>
     </content>
 
-    <script src="script.js"></script>
+    <script src="../scripts/avatar-entry.js"></script>
     <footer>
 
     </footer>

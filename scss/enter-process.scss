@@ -104,68 +104,71 @@ form {
     font-size:4rem;
 }
 
-
+.page-content {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 
 
 .profiles {
     display: flex;
     justify-content: center;
+    width: 75%;
   }
   
 .profile {
-text-align: center;
-margin: 20px;
-cursor: pointer;
+    text-align: center;
+    margin: 5%;
+    cursor: pointer;
 
-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        }
     }
-}
   
 
 .popup {
-display: none;
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
 }
 
 .popup-content {
-background-color: white;
-width: 300px;
-padding: 20px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-}
+    display: flex;
+    background-color: var(--color-sass--background);
+    width: auto;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 35%;
+    min-height: 35%;
 
-.close {
-float: right;
-cursor: pointer;
-}
+    .close {
+        align-self: flex-end;
+        cursor: pointer;
+        }
 
-input[type="password"] {
-width: 100%;
-padding: 10px;
-margin: 10px 0;
-}
-
-button {
-padding: 10px 20px;
-background-color: #333;
-color: white;
-border: none;
-cursor: pointer;
-
-:hover {
-    background-color: #555;
+    .main-button {
+        margin: 1%;
     }
 }
-
+  
