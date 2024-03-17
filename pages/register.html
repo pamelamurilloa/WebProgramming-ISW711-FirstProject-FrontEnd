@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../style/main.css">
+        <title>Register</title>
+    </head>
+    <body>
+        <div id="background-band">
+            <div class="main-title">
+                <h1 id="tube-logo big">Tube</h1>
+                <h2 id="kids-logo big">Kids</h2>
+            </div>
+            <div class="subtitle top-left">
+                <h3>Pamela Murillo</h3>
+                <h4>I Project</h4>
+                <h4>ISW-711</h4>
+            </div>
+        </div>
+        <div class="circle-form">
+            <h2 id="front-page">Register</h2>
+            <form>
+                <div id="login-info">
+                    <!-- <label for="email">First name</label> -->
+                    <input class="input-form" type="email" id="email" name="email" placeholder="email">
+
+                    <!-- <label for="password">Password</label> -->
+                    <input class="input-form password" type="password" id="password" name="password" placeholder="password">
+
+                    <!-- <label for="rep_password">Repeat password</label> -->
+                    <input class="input-form password" type="password" id="rep_password" name="rep_password" placeholder="repeat password">
+
+                    <!-- <label for="pin">Pin</label> -->
+                    <input class="input-form password" type="password" id="pin" name="pin" maxlength="6" placeholder="pin">
+                </div>
+                <div id="personal-information">
+                    <!-- <label for="name">Name</label> -->
+                    <input class="input-form" type="text" id="name" name="name" placeholder="name">
+
+                    <!-- <label for="last_name">Last name</label> -->
+                    <input class="input-form" type="text" id="last_name" name="last_name" placeholder="last name">
+
+                    <!-- <label for="birthday">Birthday</label> -->
+                    <input class="input-form" type="date" id="birthday" name="last_name">
+
+                    <!-- <label for="country">Country</label> -->
+                    <select class="input-form" id="country" name="country">
+
+                </div>
+                <input class="main-button" type="submit" value="Confirm">
+                <a class="main-button" href="login.html">Go Back</a>
+            </form>
+
+        </div>
+    </body>
 </html>
+
+<!-- <script>
+    let select_elem = document.createElement('select');
+
+    langArray.forEach((element, index) => {
+    let option_elem = document.createElement('option');
+    
+    // Add index to option_elem
+    option_elem.value = index;
+    
+    // Add element HTML
+    option_elem.textContent = element;
+    
+    // Append option_elem to select_elem
+    select_elem.appendChild(option_elem);
+    });
+</script> -->
