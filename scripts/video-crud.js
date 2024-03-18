@@ -81,21 +81,10 @@ const playlistSelect = document.getElementById("playlist");
 //                     <td>${video.name}</td>
 //                     <td>${video.url}</td>
 //                     <td>
-//                         <a data-video-id="${video.id}" img="../utils/images/modify-icon.png" class="modify edit" alt="edit"></a>
-//                         <a data-video-id="${video.id}" img="../utils/images/delete-icon.png" class="modify delete" alt="delete"></a>
+//                         <a img="../utils/images/modify-icon.png" onclick="editVideo(video.id)" class="modify edit" alt="edit"></a>
+//                         <a img="../utils/images/delete-icon.png" onclick="deleteVideo(video.id)" class="modify delete" alt="delete"></a>
 //                     </td>
 //                     </tr>`;
-
-//         const deleteIcon = videosTable.querySelector(`.delete[data-video-id="${video.id}"]`);
-//         const editIcon = videosTable.querySelector(`.edit[data-video-id="${video.id}"]`);
-
-//         deleteIcon.addEventListener('click', () => {
-//             deleteVideo(video.id);
-//         });
-
-//         editIcon.addEventListener('click', () => {
-//             editVideo(video.id);
-//         });
 
 //         videosTable.insertAdjacentHTML('beforeend', row);
 //     });
