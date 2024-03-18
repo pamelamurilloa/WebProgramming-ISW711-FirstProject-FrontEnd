@@ -1,0 +1,42 @@
+
+<head>
+    <link rel="stylesheet" href="../css/all.css" type="text/css">
+</head>
+
+<label for="playlist">Select Playlist</label>
+<select class="input-form" id="playlist" name="playlist">
+
+<div class="table-form-combo">
+
+    <table class="table" id="videos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>URL</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody id="video-table">
+            <td>1</td>
+            <td>nefef</td>
+            <td>awffeaf</td>
+            <td>1</td>
+        </tbody>
+    </table>
+
+    <div>
+        <h2 id="video-form-title">Add new video</h2>
+        <form action="">
+            <!-- <label for="video-name">Video name</label> -->
+            <input class="input-form" type="text" id="video-name" name="video-name" placeholder="Name of the video">
+
+            <!-- <label for="video-url">URL</label> -->
+            <input class="input-form " type="text" id="video-url" name="video-url" placeholder="URL of the video">
+
+            <input class="main-button" type="submit" value="Confirm">
+            <a class="main-button" type="button" onclick="clearForm()">Clear</a>
+        </form>
+    </div>
+
+</div>
