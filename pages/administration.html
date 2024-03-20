@@ -30,46 +30,81 @@
         <p>In this page you'll be able to add, delete and change your kid's profiles and the videos they can watch.</p>
 
         <section id="kid-section">
-        <h3>Kids</h3>
+            <h3>Kids</h3>
 
-        <div class="profiles" id="profile-grid">
-        </div>
-
-        <div class="popup">
-            <div class="popup-content">
-                <h2 id="kid-form-title">Register a child</h2>
-                <form id="submit-kid-changes">
-                    <!-- <label for="name">Name</label> -->
-                    <input class="input-form" type="text" id="name" name="name" placeholder="Name">
-
-                    <!-- <label for="pin">Pin</label> -->
-                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="Pin">
-
-                    <!-- <label for="age">Age</label> -->
-                    <input class="input-form" type="number" id="age" max="17" name="pin" placeholder="Age">
-
-                    
-                    <div class="profile-image-container">
-                        <a id="prevImage">◀</a>
-                        <img class="profile-image choosing" id="image" src=" " alt="Profile Image">
-                        <a id="nextImage">▶</a>
-                    </div>
-
-                    <input type="hidden" id="kidId" name="kidId" value="">
-
-                    <input id="submit-pin" class="main-button" type="submit" value="Confirm">
-                    <a id="close" class="main-button">Go Back</a>
-                </form>
+            <div class="profiles" id="profile-grid">
             </div>
-        </div>
-    </section>
-    <section id="video-section">
-        <h3>Playlists</h3>
 
-        <iframe src="playlist-crud.html"></iframe>
-    </section>
+            <div class="popup">
+                <div class="popup-content">
+                    <h2 id="kid-form-title">Register a child</h2>
+                    <form id="submit-kid-changes">
+                        <!-- <label for="name">Name</label> -->
+                        <input class="input-form" type="text" id="name" name="name" placeholder="Name">
+
+                        <!-- <label for="pin">Pin</label> -->
+                        <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="Pin">
+
+                        <!-- <label for="age">Age</label> -->
+                        <input class="input-form" type="number" id="age" max="17" name="pin" placeholder="Age">
+
+                        
+                        <div class="profile-image-container">
+                            <a id="prevImage">◀</a>
+                            <img class="profile-image choosing" id="image" src=" " alt="Profile Image">
+                            <a id="nextImage">▶</a>
+                        </div>
+
+                        <input type="hidden" id="kidId" name="kidId" value="">
+
+                        <input id="submit-pin" class="main-button" type="submit" value="Confirm">
+                        <a id="close" class="main-button" onclick="clearForm()">Go Back</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="video-section">
+            <form class="dropdown">
+                <label for="playlist">Select Playlist:</label>
+                <select class="input-form" id="playlist" name="playlist"></select>
+            </form>
+    
+            <div class="table-form-combo">
+    
+                <table class="table" id="videos">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>URL</th>
+                            <th>Modify</th>
+                        </tr>
+                    </thead>
+                    <tbody id="video-table">
+                    </tbody>
+                </table>
+    
+                <div class="crud-new">
+                    <h2 id="video-form-title">Add new video</h2>
+                    <form action="" id="submit-video-changes">
+                        <!-- <label for="video-name">Video name</label> -->
+                        <input class="input-form" type="text" id="video-name" name="video-name" placeholder="Name of the video">
+    
+                        <!-- <label for="video-url">URL</label> -->
+                        <input class="input-form " type="text" id="video-url" name="video-url" placeholder="URL of the video">
+    
+                        <input type="hidden" id="videoId" name="videoId" value="">
+    
+                        <input class="main-button" type="submit" value="Confirm">
+                        <a class="main-button" type="button" onclick="clearVideoForm()">Clear</a>
+                    </form>
+                </div>
+    
+            </div>
+        </section>   
     </div>
+
     <script src="../scripts/kids-crud.js"></script>
+    <script src="../scripts/playlist-crud.js"></script>
 
 </body>
 </html>

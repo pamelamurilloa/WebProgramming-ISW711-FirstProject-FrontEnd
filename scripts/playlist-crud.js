@@ -1,25 +1,23 @@
-const apiUrl = "http://localhost:3000/tubekids/playlists";
+const videoUrl = "http://localhost:3000/tubekids/playlists";
 const videoInput = document.getElementById("video-name");
 const urlInput = document.getElementById("video-url");
 const videoTable = document.getElementById("video-table");
-const title = document.getElementById("video-form-title");
+const videoTitle = document.getElementById("video-form-title");
 const playlistSelect = document.getElementById("playlist");
 const videoForm = document.getElementById("submit-video-changes");
 const videoId = document.getElementById("videoId");;
 let currentPlaylist;
 
-const userId = "65fa852db94c1e6a89608399";
-
-const clearForm = () => {
+const clearVideoForm = () => {
     videoInput.value = "";
     urlInput.value = "";
 
-    title.innerHTML = "Add new video";
+    videoTitle.innerHTML = "Add new video";
 }
 
 const populateSelect = async () => {
     const res = await fetch(
-        apiUrl + "/user/" + userId, 
+        videoUrl + "/user/" + userId, 
         {
             method: 'GET',
         }
@@ -42,7 +40,7 @@ const populateTable = async() => {
 
     if (playlistId) {
         const res = await fetch(
-            apiUrl + "/" + playlistId, 
+            videoUrl + "/" + playlistId, 
             {
                 method: 'GET'
             }
@@ -70,9 +68,9 @@ videoForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let playlistId = playlistSelect.value;
 
-    if (title.innerHTML == "Add new video" && videoInput.value != "" && urlInput.value.startsWith("https://www.youtube.com/")) {
+    if (videoTitle.innerHTML == "Add new video" && videoInput.value != "" && urlInput.value.startsWith("https://www.youtube.com/")) {
         const res = await fetch(
-            apiUrl + "/" + playlistId, 
+            videoUrl + "/" + playlistId, 
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -85,14 +83,14 @@ videoForm.addEventListener("submit", async (e) => {
         console.log(res.json());
         populateTable();
     }
-    else if (title.innerHTML != "Add new video") {
+    else if (videoTitle.innerHTML != "Add new video") {
         let video = currentPlaylist.videos.find(video => video._id === videoId.value);
 
         video.name = videoInput.value != "" ? videoInput.value : video.name;
         video.url = urlInput.value.startsWith("https://www.youtube.com/") ? urlInput.value : video.url;
 
         const res = await fetch(
-            apiUrl + "/" + playlistId + "/" + video._id, 
+            videoUrl + "/" + playlistId + "/" + video._id, 
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -117,7 +115,7 @@ const editVideo = async (videoID) => {
     urlInput.value = video.url;
     videoId.value = videoID;
 
-    title.innerHTML = "Editing video";
+    videoTitle.innerHTML = "Editing video";
 }
 
 
@@ -125,7 +123,7 @@ const deleteVideo = async (videoId) => {
     let playlistId = playlistSelect.value;
 
     const res = await fetch(
-        apiUrl + "/" + playlistId + "/" + videoId, 
+        videoUrl + "/" + playlistId + "/" + videoId, 
         {
             method: 'DELETE',
         }

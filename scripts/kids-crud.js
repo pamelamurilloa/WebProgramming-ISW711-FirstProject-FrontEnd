@@ -1,6 +1,6 @@
 const userId = "65fa852db94c1e6a89608399"; //remember to change this
 
-const apiUrl = "http://localhost:3000/tubekids/kids";
+const kidUrl = "http://localhost:3000/tubekids/kids";
 const profiles = document.querySelectorAll('.profile');
 const popup = document.getElementsByClassName('popup')[0];
 const closeBtn = document.getElementById('close');
@@ -36,7 +36,7 @@ const generateProfileCards = async () => {
     profileGrid.innerHTML = ''; // Clear existing content
 
     const res = await fetch(
-        apiUrl + "/user/" + userId, 
+        kidUrl + "/user/" + userId, 
         {
             method: 'GET',
         }
@@ -89,7 +89,7 @@ kidForm.addEventListener("submit", async (e) => {
         let avatar = imgNumberMatch[1];
 
         const res = await fetch(
-            apiUrl, 
+            kidUrl, 
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -106,7 +106,7 @@ kidForm.addEventListener("submit", async (e) => {
     }
     else if (title.innerHTML != "Register a child") {
         let res = await fetch(
-            apiUrl + "/" + kidId.value, 
+            kidUrl + "/" + kidId.value, 
             {
                 method: 'GET',
             }
@@ -123,7 +123,7 @@ kidForm.addEventListener("submit", async (e) => {
         kid.pin = pinInput.value != "" ? pinInput.value : kid.pin;
 
         res = await fetch(
-            apiUrl + "/" + kid._id, 
+            kidUrl + "/" + kid._id, 
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -146,7 +146,7 @@ const editProfile = async (profileId) => {
 
     if (profileId) {
         const res = await fetch(
-            apiUrl + "/" + profileId, 
+            kidUrl + "/" + profileId, 
             {
                 method: 'GET'
             }
@@ -170,7 +170,7 @@ const editProfile = async (profileId) => {
 const deleteProfile = async (profileId) => {
 
     const res = await fetch(
-        apiUrl + "/" + profileId, 
+        kidUrl + "/" + profileId, 
         {
             method: 'DELETE',
         }

@@ -3,19 +3,20 @@ iframe {
   width: 95vw;
   height: 80%; }
 
-.video-crud-complete {
+#video-section {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start; }
 
-.table-form-combo, .dropdown {
+.table-form-combo {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: stretch;
   align-content: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-bottom: 10vh; }
 
 #kid-section, #video-section {
   margin: 0 4% 0 4%; }
@@ -35,6 +36,11 @@ iframe {
   margin-top: 5%; }
 
 .dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
   justify-content: flex-start;
   margin: 0px 0px 0px 2%;
   height: 10%; }
@@ -52,8 +58,9 @@ iframe {
 .table {
   box-shadow: 0 2px 15px var(--color-sass--terciary);
   min-width: 60%;
-  margin: 0px 0px 0px 2%;
-  padding: 1.5%; }
+  padding: 1.5%;
+  display: block;
+  height: 100%; }
   .table thead tr {
     min-width: 100%;
     text-align: left; }
