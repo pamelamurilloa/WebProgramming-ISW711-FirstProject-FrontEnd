@@ -51,7 +51,7 @@
     popup.style.display = 'none';
     });
 
-    // Function to generate profile cards
+    // Generate each card
     const generateProfileCards = async () => {
         const profileGrid = document.getElementById('profile-grid');
         profileGrid.innerHTML = ''; // Clear existing content
@@ -68,13 +68,13 @@
             const profileCard = document.createElement('div');
             profileCard.classList.add('profile');
             profileCard.innerHTML = `
-                <div class="profile" id="${profile.id}">
+                <div class="profile" id="${profile._id}">
                     <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar">
                     <div class="under-image">
                         <h3 class="profile-name">${profile.name}</h3>
                         <div class="profile-actions">
-                            <a img="../utils/images/edit-icon.png" onclick="editProfile(${profile.id})"></a>
-                            <a img="../utils/images/delete-icon.png" onclick="deleteProfile(${profile.id})"></a>
+                            <a onclick="editProfile('${profile._id}')"><img class="icon modify edit" src="../utils/images/modify-icon.png"/></a>
+                            <a onclick="deleteProfile('${profile._id}')"><img class="icon modify delete" src="../utils/images/delete-icon.png"/></a>
                         </div>
                     </div>
                 </div>
@@ -87,11 +87,17 @@
 
         // Add the 'Add Profile' card
         const addProfileCard = document.createElement('div');
-        addProfileCard.classList.add('profile-card');
+        addProfileCard.classList.add('profile');
         addProfileCard.innerHTML = `
-            <img src="../utils/images/placeholder.png" alt="Add Profile" onclick="addProfile()">
-            <a class="add-button" onclick="addProfile()">Add Profile</a>
-        `;
+                <div class="profile" >
+                    <img src="../utils/images/placeholder.png" onclick="addProfile()" alt="Add Profile">
+                    <div class="under-image">
+                        <div class="profile-actions">
+                            <a class="add-button" onclick="addProfile()"><h3>Add Profile</h3></a>
+                        </div>
+                    </div>
+                </div>
+            `;
         profileGrid.appendChild(addProfileCard);
     }
 
