@@ -26,8 +26,38 @@
           </nav>
     </header>
 
-    <iframe src="kids-crud.html" frameborder="0"></iframe>
-    <!-- <iframe src="playlist-crud.html" frameborder="0"></iframe> -->
+    <div class="profiles" id="profile-grid">
+    </div>
+
+    <div class="popup">
+        <div class="popup-content">
+            <h2>Register a child</h2>
+            <form>
+                <!-- <label for="name">Name</label> -->
+                <input class="input-form" type="text" id="name" name="name" placeholder="Name">
+
+                <!-- <label for="pin">Pin</label> -->
+                <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="Pin">
+
+                <!-- <label for="age">Age</label> -->
+                <input class="input-form" type="number" id="age" max="17" name="pin" placeholder="Age">
+
+                <!-- <label for="image">Avatar</label> -->
+                <div class="profile-image-container">
+                    <img class="profile-image" src=" " alt="Profile Image">
+                    <div class="image-navigation">
+                        <a id="prevImage">◀</a>
+                        <a id="nextImage">▶</a>
+                    </div>
+                </div>
+
+                <input id="submit-pin" class="main-button" type="submit" value="Confirm">
+                <a id="close" class="main-button">Go Back</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/kids-crud.js"></script>
 
 </body>
 </html>
