@@ -11,67 +11,23 @@
 
     <title>Video Feed</title>
 </head>
-<body>
-    <header class="nav">
-        <div class="main-title">
-            <h1 id="tube-logo big">Tube</h1>
-            <h2 id="kids-logo big">Kids</h2>
+    <body>
+        <header class="nav">
+            <div class="main-title">
+                <h1 id="tube-logo big">Tube</h1>
+                <h2 id="kids-logo big">Kids</h2>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                <li><a class="alternative main-button nav-button" href="avatar-entry.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="page-content">
+            
         </div>
-        <nav>
-            <ul class="nav-links">
-              <li><a class="alternative main-button nav-button" href="avatar-entry.html">Logout</a></li>
-            </ul>
-          </nav>
-    </header>
-    <div class="page-content">
-        
-    </div>
-</body>
+
+        <script src="../scripts/front-page.js"></script>    
+    </body>
 </html>
-<script>
-    const playlistUrl = "http://localhost:3000/tubekids/playlists";
-    const page = document.getElementsByClassName("page-content")[0];
-    let userId = localStorage.getItem("userId");
-
-    const populateFeed = async() => {
-
-        const res = await fetch (
-            playlistUrl + "/user/" + userId, 
-            {
-                method: 'GET'
-            }
-        );
-
-        const playlists = await res.json();
-        
-        const playlist = playlists.find(playlist=>playlist.name ==='General');
-
-        console.log(playlist);
-        page.innerHTML = "";
-
-        playlist.videos.forEach(video => {
-            const newVideo = document.createElement('div');
-            newVideo.classList.add("video-card");
-            // newVideo.innerHTML =
-            // `
-            // <iframe width="853" height="480" 
-            // src="https://www.youtube.com/embed/Nfm7x2TLUyU" title="Los Nuevos Programadores la Tienen DIFÍCIL si hacen esto…" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-            // </iframe>
-
-            // `
-
-            newVideo.innerHTML =
-            `
-            <iframe width="853" height="480" 
-            src="${video.url}" title="${video.name}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe>
-
-            `
-
-            page.append(newVideo);
-        })
-    };
-
-
-populateFeed();
-</script>
