@@ -3,7 +3,7 @@
   --color-sass--secondary: #0C2D57;
   --color-sass--terciary: #c2c2c2;
   --color-sass--background: #efecec;
-  --color-sass--text: #161616; }
+  --color-sass--text: #0C2D57; }
 
 #background-band {
   margin: 5%;
@@ -36,13 +36,6 @@ form {
   justify-content: space-between;
   align-items: center;
   min-height: 32%; }
-
-.input-form {
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--color-sass--secondary);
-  text-align: center;
-  margin: 5%; }
 
 #front-page {
   margin-bottom: 18%;

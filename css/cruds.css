@@ -1,19 +1,58 @@
-.table-form-combo {
+iframe {
+  display: flex;
+  width: 95vw;
+  height: 80%; }
+
+.video-crud-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start; }
+
+.table-form-combo, .dropdown {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   align-content: center;
-  flex-wrap: wrap;
-  margin: 2%; }
+  flex-wrap: wrap; }
+
+.crud-new form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center; }
+  .crud-new form .main-button {
+    margin: 2%; }
+
+.dropdown {
+  justify-content: flex-start;
+  margin: 0px 0px 0px 2%;
+  height: 10%; }
+
+#playlist {
+  margin-left: 10px;
+  box-shadow: 0 2px 15px var(--color-sass--terciary);
+  background: none;
+  height: 1.8rem;
+  width: 10rem;
+  border-radius: 5px;
+  border-width: 0px;
+  font-size: 1.05rem; }
 
 .table {
   box-shadow: 0 2px 15px var(--color-sass--terciary);
-  min-width: 60%; }
-  .table thead tr th:first-child {
-    width: 25%; }
-  .table thead tr th:last-child {
-    width: 15%; }
+  min-width: 60%;
+  margin: 0px 0px 0px 2%;
+  padding: 1.5%; }
+  .table thead tr {
+    min-width: 100%;
+    text-align: left; }
+    .table thead tr th:first-child, .table thead tr td:first-child {
+      width: 25%; }
+    .table thead tr th:last-child, .table thead tr td:last-child {
+      width: 15%;
+      text-align: center; }
   .table tbody tr td:last-child {
     display: flex;
     justify-content: center;
