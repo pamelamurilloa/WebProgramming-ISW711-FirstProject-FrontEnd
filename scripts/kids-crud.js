@@ -105,7 +105,7 @@ kidForm.addEventListener("submit", async (e) => {
         generateProfileCards();
     }
     else if (title.innerHTML != "Register a child") {
-        const res = await fetch(
+        let res = await fetch(
             apiUrl + "/" + kidId.value, 
             {
                 method: 'GET',
@@ -123,7 +123,7 @@ kidForm.addEventListener("submit", async (e) => {
         kid.pin = pinInput.value != "" ? pinInput.value : kid.pin;
 
         res = await fetch(
-            apiUrl + "/" + playlistId + "/" + video._id, 
+            apiUrl + "/" + kid._id, 
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -156,6 +156,10 @@ const editProfile = async (profileId) => {
         profileImage.src = `../utils/images/profile${profile.avatar}.png`
 
         title.innerHTML = "Update child's data";
+        nameInput.value = profile.name;
+        ageInput.value = profile.age;
+        pinInput.value = profile.pin;
+        kidId.value = profileId;
 
         popup.style.display = 'block';
     };
