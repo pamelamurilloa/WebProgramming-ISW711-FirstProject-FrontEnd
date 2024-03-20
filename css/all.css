@@ -40,3 +40,9 @@ body {
   .alternative :hover {
     background-color: var(--color-sass--primary);
     color: var(--color-sass--text); }
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px; }
