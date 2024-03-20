@@ -1,0 +1,23 @@
+.table-form-combo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 2%; }
+
+.table {
+  box-shadow: 0 2px 15px var(--color-sass--terciary);
+  min-width: 60%; }
+  .table thead tr th:first-child {
+    width: 25%; }
+  .table thead tr th:last-child {
+    width: 15%; }
+  .table tbody tr td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; }
+    .table tbody tr td:last-child a, .table tbody tr td:last-child img {
+      cursor: pointer; }

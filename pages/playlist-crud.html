@@ -1,0 +1,46 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/all.css" type="text/css">
+        <link rel="stylesheet" href="../css/cruds.css" type="text/css">
+
+    </head>
+<body>
+        
+    <label for="playlist">Select Playlists</label>
+    <select class="input-form" id="playlist" name="playlist"></select>
+
+    <div class="table-form-combo">
+        <table class="table" id="videos">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>URL</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody id="video-table">
+            </tbody>
+        </table>
+
+        <div>
+            <h2 id="video-form-title">Add new video</h2>
+            <form action="" id="submit-video-changes">
+                <!-- <label for="video-name">Video name</label> -->
+                <input class="input-form" type="text" id="video-name" name="video-name" placeholder="Name of the video">
+
+                <!-- <label for="video-url">URL</label> -->
+                <input class="input-form " type="text" id="video-url" name="video-url" placeholder="URL of the video">
+
+                <input type="hidden" id="videoId" name="videoId" value="">
+
+                <input class="main-button" type="submit" value="Confirm">
+                <a class="main-button" type="button" onclick="clearForm()">Clear</a>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="../scripts/playlist-crud.js"></script>
+</body>
+</html>
