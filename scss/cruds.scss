@@ -19,6 +19,10 @@ iframe {
     flex-wrap: wrap;
 }
 
+#kid-section, #video-section {
+    margin: 0 4% 0 4%;
+}
+
 .crud-new {
     form {
         display: flex;
@@ -29,6 +33,19 @@ iframe {
         .main-button {
             margin: 2%;
         }
+    }
+}
+
+.content {
+
+
+
+    h2, p {
+        margin: 0 2% 0 2%;
+    }
+
+    h2 {
+        margin-top: 5%;
     }
 }
 
@@ -107,7 +124,7 @@ iframe {
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
 
-    :hover {
+    &:hover {
         filter: brightness(70%);
     }
 
@@ -115,6 +132,10 @@ iframe {
         max-width: 20px;
         border-radius: 0;
     }
+}
+
+.choosing {
+    width: 50%;
 }
     
 .popup {
@@ -151,5 +172,26 @@ iframe {
 
     .main-button {
         margin: 1%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin: 10px 0px 10px 0px;
+
+        #prevImage, #nextImage {
+            cursor: pointer;
+            margin: 1%;
+            font-size: 1.5rem;
+            color: var(--color-sass--secondary);
+        }
     }
 }

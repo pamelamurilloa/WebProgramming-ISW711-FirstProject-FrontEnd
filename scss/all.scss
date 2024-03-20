@@ -32,10 +32,35 @@ body {
     font-size: medium;
     transition: 0.3s;
 
-    :hover {
+    &:hover {
         background-color: var(--color-sass--secondary);
         color:  var(--color-sass--primary);
         cursor: pointer;
+    }
+}
+
+.main-title {
+    display: flex;
+    align-self: center;
+    padding-left: 55px;
+    font-size: 2rem;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        margin: 0;
+        color: var(--color-sass--secondary);
+    }
+
+    h2 {
+        margin: 0;
+        margin-left: 19px;
+        margin-top: -10%;
+        text-decoration: inherit;
+        font-style: italic;
+        font-weight: 100;
+        color: var(--color-sass--background);
+        font-variant: unicase;
     }
 }
 
@@ -43,7 +68,7 @@ body {
     background-color: var(--color-sass--secondary);
     color:  var(--color-sass--background);
 
-    :hover {
+    &:hover {
         background-color: var(--color-sass--primary);
         color:  var(--color-sass--text);
     }
@@ -85,7 +110,7 @@ body {
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
         }
 
-        :hover {
+        &:hover {
             filter: brightness(70%);
         }
     }

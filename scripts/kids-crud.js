@@ -1,15 +1,34 @@
-const userId = "65fa852db94c1e6a89608399";
+const userId = "65fa852db94c1e6a89608399"; //remember to change this
+
 const apiUrl = "http://localhost:3000/tubekids/kids";
 const profiles = document.querySelectorAll('.profile');
 const popup = document.getElementsByClassName('popup')[0];
 const closeBtn = document.getElementById('close');
+
 const profileImage = document.getElementsByClassName('profile-image')[0];
 const prevImage = document.getElementById('prevImage');
 const nextImage = document.getElementById('nextImage');
 
+const title = document.getElementById("kid-form-title");
+
+const kidForm = document.getElementById("submit-kid-changes");
+const nameInput = document.getElementById("name");
+const pinInput = document.getElementById("pin");
+const ageInput = document.getElementById("age");
+const kidId = document.getElementById("kidId");
+
+
+
 closeBtn.addEventListener('click', () => {
 popup.style.display = 'none';
 });
+
+const clearForm = () => {
+    nameInput.value = "";
+    pinInput.value = "";
+    ageInput.value = "";
+    
+}
 
 // Generate each card
 const generateProfileCards = async () => {
@@ -61,6 +80,67 @@ const generateProfileCards = async () => {
     profileGrid.appendChild(addProfileCard);
 }
 
+
+kidForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (title.innerHTML == "Register a child" && nameInput.value != "" && pinInput.value != "" && ageInput.value != "") {
+        let imgNumberMatch = /(\d+)(?=\D*$)/.exec(profileImage.src);
+        let avatar = imgNumberMatch[1];
+
+        const res = await fetch(
+            apiUrl, 
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: 'POST',
+                body: JSON.stringify({name: nameInput.value, pin: parseInt(pinInput.value), avatar: avatar, age: parseInt(ageInput.value), userId: userId})
+            }
+        )
+
+        console.log(await res.json());
+        popup.style.display = 'none';
+
+        generateProfileCards();
+    }
+    else if (title.innerHTML != "Register a child") {
+        const res = await fetch(
+            apiUrl + "/" + kidId.value, 
+            {
+                method: 'GET',
+            }
+        );
+
+        let kid = await res.json();
+
+        let imgNumberMatch = /(\d+)(?=\D*$)/.exec(profileImage.src);
+        let avatar = imgNumberMatch[1];
+
+        kid.name = nameInput.value != "" ? nameInput.value : kid.name;
+        kid.age = ageInput.value != "" ? ageInput.value : kid.age;
+        kid.avatar = avatar != "" ? avatar : kid.avatar;
+        kid.pin = pinInput.value != "" ? pinInput.value : kid.pin;
+
+        res = await fetch(
+            apiUrl + "/" + playlistId + "/" + video._id, 
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: 'PATCH',
+                body: JSON.stringify({name: kid.name, pin: parseInt(kid.pin), avatar: kid.avatar, age: parseInt(kid.age), userId: userId})
+            }
+        )
+
+        console.log( await res.json());
+        popup.style.display = 'none';
+    
+        generateProfileCards();
+    }
+    
+})
+
 // Edits a profile
 const editProfile = async (profileId) => {
     alert("Edit profile with ID: " + profileId);
@@ -75,10 +155,12 @@ const editProfile = async (profileId) => {
         let profile = await res.json();
 
         profileImage.src = `../utils/images/profile${profile.avatar}.png`
+
+        title.innerHTML = "Update child's data";
+
         popup.style.display = 'block';
     };
 
-    
 }
 
 // Deletes a profile
@@ -88,8 +170,10 @@ const deleteProfile = (profileId) => {
 
 // Add a profile
 const addProfile =() => {
-    alert("Add new profile");
     popup.style.display = 'block';
+    title.innerHTML = "Register a child";
+    profileImage.src = `../utils/images/profile1.png`;
+
 }
 
 // This area is for changing the profile picture

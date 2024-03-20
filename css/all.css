@@ -32,15 +32,35 @@ body {
   color: var(--color-sass--background);
   font-size: medium;
   transition: 0.3s; }
-  .main-button :hover {
+  .main-button:hover {
     background-color: var(--color-sass--secondary);
     color: var(--color-sass--primary);
     cursor: pointer; }
 
+.main-title {
+  display: flex;
+  align-self: center;
+  padding-left: 55px;
+  font-size: 2rem;
+  justify-content: center;
+  flex-direction: column; }
+  .main-title h1 {
+    margin: 0;
+    color: var(--color-sass--secondary); }
+  .main-title h2 {
+    margin: 0;
+    margin-left: 19px;
+    margin-top: -10%;
+    text-decoration: inherit;
+    font-style: italic;
+    font-weight: 100;
+    color: var(--color-sass--background);
+    font-variant: unicase; }
+
 .alternative {
   background-color: var(--color-sass--secondary);
   color: var(--color-sass--background); }
-  .alternative :hover {
+  .alternative:hover {
     background-color: var(--color-sass--primary);
     color: var(--color-sass--text); }
 
@@ -73,5 +93,5 @@ body {
     filter: brightness(100%);
     transition: all 0.4s ease;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; }
-  .profile :hover {
+  .profile:hover {
     filter: brightness(70%); }

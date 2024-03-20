@@ -17,6 +17,9 @@ iframe {
   align-content: center;
   flex-wrap: wrap; }
 
+#kid-section, #video-section {
+  margin: 0 4% 0 4%; }
+
 .crud-new form {
   display: flex;
   justify-content: center;
@@ -24,6 +27,12 @@ iframe {
   align-items: center; }
   .crud-new form .main-button {
     margin: 2%; }
+
+.content h2, .content p {
+  margin: 0 2% 0 2%; }
+
+.content h2 {
+  margin-top: 5%; }
 
 .dropdown {
   justify-content: flex-start;
@@ -78,11 +87,14 @@ iframe {
     filter: brightness(100%);
     transition: all 0.4s ease;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; }
-  .profile :hover {
+  .profile:hover {
     filter: brightness(70%); }
   .profile .icon {
     max-width: 20px;
     border-radius: 0; }
+
+.choosing {
+  width: 50%; }
 
 .popup {
   display: none;
@@ -114,3 +126,18 @@ iframe {
     cursor: pointer; }
   .popup-content .main-button {
     margin: 1%; }
+  .popup-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .popup-content .profile-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px 0px 10px 0px; }
+    .popup-content .profile-image-container #prevImage, .popup-content .profile-image-container #nextImage {
+      cursor: pointer;
+      margin: 1%;
+      font-size: 1.5rem;
+      color: var(--color-sass--secondary); }

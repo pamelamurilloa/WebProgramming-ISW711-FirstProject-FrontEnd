@@ -25,38 +25,50 @@
             </ul>
           </nav>
     </header>
+    <div class="content">
+        <h2>Administration</h2>
+        <p>In this page you'll be able to add, delete and change your kid's profiles and the videos they can watch.</p>
 
-    <div class="profiles" id="profile-grid">
-    </div>
+        <section id="kid-section">
+        <h3>Kids</h3>
 
-    <div class="popup">
-        <div class="popup-content">
-            <h2>Register a child</h2>
-            <form>
-                <!-- <label for="name">Name</label> -->
-                <input class="input-form" type="text" id="name" name="name" placeholder="Name">
+        <div class="profiles" id="profile-grid">
+        </div>
 
-                <!-- <label for="pin">Pin</label> -->
-                <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="Pin">
+        <div class="popup">
+            <div class="popup-content">
+                <h2 id="kid-form-title">Register a child</h2>
+                <form id="submit-kid-changes">
+                    <!-- <label for="name">Name</label> -->
+                    <input class="input-form" type="text" id="name" name="name" placeholder="Name">
 
-                <!-- <label for="age">Age</label> -->
-                <input class="input-form" type="number" id="age" max="17" name="pin" placeholder="Age">
+                    <!-- <label for="pin">Pin</label> -->
+                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="Pin">
 
-                <!-- <label for="image">Avatar</label> -->
-                <div class="profile-image-container">
-                    <img class="profile-image" src=" " alt="Profile Image">
-                    <div class="image-navigation">
+                    <!-- <label for="age">Age</label> -->
+                    <input class="input-form" type="number" id="age" max="17" name="pin" placeholder="Age">
+
+                    
+                    <div class="profile-image-container">
                         <a id="prevImage">◀</a>
+                        <img class="profile-image choosing" id="image" src=" " alt="Profile Image">
                         <a id="nextImage">▶</a>
                     </div>
-                </div>
 
-                <input id="submit-pin" class="main-button" type="submit" value="Confirm">
-                <a id="close" class="main-button">Go Back</a>
-            </form>
+                    <input type="hidden" id="kidId" name="kidId" value="">
+
+                    <input id="submit-pin" class="main-button" type="submit" value="Confirm">
+                    <a id="close" class="main-button">Go Back</a>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
+    <section id="video-section">
+        <h3>Playlists</h3>
 
+        <iframe src="playlist-crud.html"></iframe>
+    </section>
+    </div>
     <script src="../scripts/kids-crud.js"></script>
 
 </body>
