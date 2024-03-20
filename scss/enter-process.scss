@@ -27,6 +27,11 @@
     width: 40rem;
     align-items: center;
     margin-top: -60vh;
+
+    .main-button {
+        max-width: 50%;
+        margin: 1%;
+    }
 }
 
 form {
@@ -35,6 +40,11 @@ form {
     justify-content: space-between;
     align-items: center;
     min-height: 32%;
+    min-width: 50%;
+}
+
+#register-form{
+    max-width: 70%;
 }
 
 

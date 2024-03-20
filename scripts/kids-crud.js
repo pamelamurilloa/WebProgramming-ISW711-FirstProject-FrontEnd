@@ -58,7 +58,6 @@ const generateProfileCards = async () => {
                 </div>
             </div>
         `;
-    
 
     profileGrid.appendChild(profileCard);
 });

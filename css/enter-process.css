@@ -29,13 +29,20 @@
   width: 40rem;
   align-items: center;
   margin-top: -60vh; }
+  .circle-form .main-button {
+    max-width: 50%;
+    margin: 1%; }
 
 form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 32%; }
+  min-height: 32%;
+  min-width: 50%; }
+
+#register-form {
+  max-width: 70%; }
 
 #front-page {
   margin-bottom: 18%;
