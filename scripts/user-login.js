@@ -19,6 +19,7 @@ userForm.addEventListener("submit", async (e) => {
         user = await res.json();
         localStorage.setItem("userId", user._id);
         localStorage.setItem("userPin", user.pin);
+
         window.location.href = "avatar-entry.html";
     } else {
         alert("El usuario o la contraseña están incorrectos");

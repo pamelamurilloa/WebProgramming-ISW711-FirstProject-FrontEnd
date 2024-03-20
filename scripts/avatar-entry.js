@@ -69,6 +69,7 @@ submitBtn.addEventListener("submit", async (e) => {
 
   if (status == "true") {
     if (enteredPIN == profilePin) {
+      localStorage.setItem("admin", status);
       window.location.replace("administration.html");
     } else {
       alert("Incorrect pin");
@@ -84,8 +85,9 @@ submitBtn.addEventListener("submit", async (e) => {
       let kid = await res.json();
 
       if (res.status == 200) {
+        localStorage.setItem("admin", status);
         localStorage.setItem("kidId", kid._id);
-        window.location.href = "../pages/front-page.html";
+        window.location.replace("../pages/front-page.html");
       } else {
           alert("Incorrect pin");
       }
