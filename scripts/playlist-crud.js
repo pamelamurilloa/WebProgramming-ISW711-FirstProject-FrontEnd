@@ -126,8 +126,17 @@ const editVideo = async (videoID) => {
 }
 
 
-const deleteVideo = (videoID) => {
-    console.log("the following video is being deleted" + videoID);
+const deleteVideo = async (videoId) => {
+    let playlistId = playlistSelect.value;
+
+    const res = await fetch(
+        apiUrl + "/" + playlistId + "/" + videoId, 
+        {
+            method: 'DELETE',
+        }
+    )
+    console.log(res.json());
+    populateTable();
 }
 
 // // This will populate the playlist select, for now, there is only the playlist "general"
