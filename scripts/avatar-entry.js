@@ -5,20 +5,14 @@ const submitBtn = document.getElementById('submit-pin');
 const kidUrl = "http://localhost:3000/tubekids/kids";
 const userUrl = "http://localhost:3000/tubekids/users";
 
-profiles.forEach(profile => {
-  profile.addEventListener('click', () => {
-    popup.style.display = 'block';
-
-    const profileId = profile.id;
-    popup.setAttribute('data-profile-id', profileId);
-  });
-});
+const userId = localStorage.getItem("userId");
 
 // Generate each card
 const generateProfileCards = async () => {
   const profileGrid = document.getElementById('profile-grid');
   profileGrid.innerHTML = ''; // Clear existing content
 
+  try {
   const res = await fetch(
       kidUrl + "/user/" + userId, 
       {
@@ -27,21 +21,25 @@ const generateProfileCards = async () => {
   )
   const profiles = await res.json();
 
-  profiles.forEach(profile => {
-      const profileCard = document.createElement('div');
-      profileCard.classList.add('profile');
-      profileCard.innerHTML = `
-          <div class="profile" id="${profile._id}">
-              <img src="../utils/images/profile${profile.avatar}.png" onclick="insertPin(${profile._id})" alt="Profile Avatar">
-              <div class="under-image">
-                  <h3 class="profile-name">${profile.name}</h3>
-              </div>
-          </div>
-      `;
-  
+  if (res.status === 200)
+    profiles.forEach(profile => {
+        const profileCard = document.createElement('div');
+        profileCard.classList.add('profile');
+        profileCard.innerHTML = `
+            <div class="profile" id="${profile._id}">
+                <img src="../utils/images/profile${profile.avatar}.png" onclick="insertPin('${profile._id}')" alt="Profile Avatar">
+                <div class="under-image">
+                    <h3 class="profile-name">${profile.name}</h3>
+                </div>
+            </div>
+        `;
+    
 
-    profileGrid.appendChild(profileCard);
+      profileGrid.appendChild(profileCard);
   })
+  } catch (err) {
+    console.log("The user has no kids registered");
+  }
 }
 
 const insertPin = async (profileId, admin = false) => {
@@ -61,33 +59,37 @@ closeBtn.addEventListener('click', () => {
 });
 
 // Handle PIN submission
-submitBtn.addEventListener('click', async () => {
+submitBtn.addEventListener("submit", async (e) => {
+  e.preventDefault();
   const enteredPIN = document.getElementById('pin').value;
   const profileId = popup.getAttribute('data-profile-id');
   const status = popup.getAttribute('admin-status');
   const profilePin = localStorage.getItem("userPin");
 
-  if (status === true) {
-    if (enteredPIN === profilePin) {
-      window.location.href = "administration.html";
+  if (status == "true") {
+    if (enteredPIN == profilePin) {
+      window.location.replace("administration.html");
     } else {
       alert("Incorrect pin");
     }
   }
   else {
       const res = await fetch(
-      kdUrl + "/"+ profileId +"/" + enteredPIN, 
+      kidUrl + "/compare/"+ profileId +"/" + enteredPIN, 
       {
           method: 'GET',
       });
 
-      if (res.status === 200) {
-        user = res.json();
+      let kid = await res.json();
+
+      if (res.status == 200) {
         localStorage.setItem("kidId", kid._id);
-        window.location.href = "front-page.html";
+        window.location.href = "../pages/front-page.html";
       } else {
-          alert("ncorrect pin");
+          alert("Incorrect pin");
       }
   }
   
 });
+
+generateProfileCards();

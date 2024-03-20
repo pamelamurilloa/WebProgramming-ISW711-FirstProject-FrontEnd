@@ -1,6 +1,7 @@
 const userForm = document.getElementById("register-form");
 
 const userUrl = "http://localhost:3000/tubekids/users";
+const playlistUrl = "http://localhost:3000/tubekids/playlists";
 
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -28,7 +29,7 @@ userForm.addEventListener("submit", async (e) => {
     }
 
     if (passwordInput.value === passwordRepeatInput.value && isNumeric(parseInt(pinInput.value)) && age >= 18) {
-        const res = await fetch(
+        let res = await fetch(
             userUrl, 
             {
                 headers: {
@@ -37,7 +38,20 @@ userForm.addEventListener("submit", async (e) => {
                 method: 'POST',
                 body: JSON.stringify({email: emailInput.value, password: passwordInput.value, pin: parseInt(pinInput.value), name: nameInput.value, lastname: lastnameInput.value, birthdate: birthdateInput.value, country: countryInput.value})
             }
-        )
+        );
+        
+        userId = res.json()._id;
+        
+        res = await fetch (
+            playlistUrl, 
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: 'POST',
+                body: JSON.stringify({name: "General", userId: userId})
+            }
+        );
 
         console.log(await res.json());
 

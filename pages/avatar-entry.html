@@ -19,7 +19,7 @@
         </div>
         <nav>
             <ul class="nav-links">
-              <li><a class="alternative main-button nav-button" href="administration.html">Enter as Admin</a></li>
+              <li><a class="alternative main-button nav-button" onclick="insertPin(0, true)">Enter as Admin</a></li>
               <li><a class="alternative main-button nav-button" href="../index.html">Logout</a></li>
             </ul>
           </nav>
@@ -29,15 +29,15 @@
         <div class="profiles" id="profile-grid">
         </div>
 
-        
+
           <div class="popup" id="popup">
             <div class="popup-content">
               <h2>Introduce your pin</h2>
-                <form>
+                <form id="submit-pin">
                     <!-- <label for="pin">Pin</label> -->
-                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="pin">
+                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="pin" required>
 
-                    <input id="submit-pin" class="main-button" type="submit" value="Confirm">
+                    <input  class="main-button" type="submit" value="Confirm">
                     <a id="close" class="main-button">Go Back</a>
                 </form>
             </div>

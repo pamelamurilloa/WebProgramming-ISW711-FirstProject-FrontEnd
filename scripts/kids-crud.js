@@ -1,4 +1,4 @@
-const userId = "65fa852db94c1e6a89608399"; //remember to change this
+let userId = localStorage.getItem("userId");
 
 const kidUrl = "http://localhost:3000/tubekids/kids";
 const profiles = document.querySelectorAll('.profile');
@@ -35,33 +35,40 @@ const generateProfileCards = async () => {
     const profileGrid = document.getElementById('profile-grid');
     profileGrid.innerHTML = ''; // Clear existing content
 
-    const res = await fetch(
-        kidUrl + "/user/" + userId, 
-        {
-            method: 'GET',
-        }
-    )
-    const profiles = await res.json();
+    try {
+        const res = await fetch(
+            kidUrl + "/user/" + userId, 
+            {
+                method: 'GET',
+            }
+        )
 
-    profiles.forEach(profile => {
-        const profileCard = document.createElement('div');
-        profileCard.classList.add('profile');
-        profileCard.innerHTML = `
-            <div class="profile" id="${profile._id}">
-                <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar">
-                <div class="under-image">
-                    <h3 class="profile-name">${profile.name}</h3>
-                    <div class="profile-actions">
-                        <a onclick="editProfile('${profile._id}')"><img class="icon modify edit" src="../utils/images/modify-icon.png"/></a>
-                        <a onclick="deleteProfile('${profile._id}')"><img class="icon modify delete" src="../utils/images/delete-icon.png"/></a>
+        if (res.status === 200) {
+            const profiles = await res.json();
+
+            profiles.forEach(profile => {
+                const profileCard = document.createElement('div');
+                profileCard.classList.add('profile');
+                profileCard.innerHTML = `
+                    <div class="profile" id="${profile._id}">
+                        <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar">
+                        <div class="under-image">
+                            <h3 class="profile-name">${profile.name}</h3>
+                            <div class="profile-actions">
+                                <a onclick="editProfile('${profile._id}')"><img class="icon modify edit" src="../utils/images/modify-icon.png"/></a>
+                                <a onclick="deleteProfile('${profile._id}')"><img class="icon modify delete" src="../utils/images/delete-icon.png"/></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        `;
+                `;
 
-    profileGrid.appendChild(profileCard);
-});
-
+            profileGrid.appendChild(profileCard);
+        });
+        
+        }
+    } catch (err) {
+        console.log("The user has no kids registered");
+    }
 
     // Add the 'Add Profile' card
     const addProfileCard = document.createElement('div');

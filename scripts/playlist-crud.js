@@ -1,4 +1,7 @@
+userId = localStorage.getItem("userId");
+
 const videoUrl = "http://localhost:3000/tubekids/playlists";
+
 const videoInput = document.getElementById("video-name");
 const urlInput = document.getElementById("video-url");
 const videoTable = document.getElementById("video-table");

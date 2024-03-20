@@ -16,7 +16,7 @@ userForm.addEventListener("submit", async (e) => {
     )
 
     if (res.status === 200) {
-        user = res.json();
+        user = await res.json();
         localStorage.setItem("userId", user._id);
         localStorage.setItem("userPin", user.pin);
         window.location.href = "avatar-entry.html";
