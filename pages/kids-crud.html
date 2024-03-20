@@ -41,7 +41,7 @@
 
 
 <script>
-    const userId = "65f98c36b1881269046291a3";
+    const userId = "65fa852db94c1e6a89608399";
     const apiUrl = "http://localhost:3000/tubekids/kids";
     const profiles = document.querySelectorAll('.profile');
     const popup = document.getElementById('popup');
@@ -69,7 +69,7 @@
             profileCard.classList.add('profile');
             profileCard.innerHTML = `
                 <div class="profile" id="${profile.id}">
-                    <img src="../utils/images/${profile.avatar}.png" alt="Profile Avatar">
+                    <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar">
                     <div class="under-image">
                         <h3 class="profile-name">${profile.name}</h3>
                         <div class="profile-actions">
