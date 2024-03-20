@@ -1,6 +1,6 @@
 const userForm = document.getElementById("login-form");
 
-const userUrl = "http://localhost:3000/tubekids/users";
+const sessionUrl = "http://localhost:3000/tubekids/session";
 
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -9,7 +9,7 @@ userForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const res = await fetch(
-        userUrl + "/"+ emailInput.value +"/" +passwordInput.value, 
+        sessionUrl + "/"+ emailInput.value +"/" +passwordInput.value, 
         {
             method: 'GET',
         }

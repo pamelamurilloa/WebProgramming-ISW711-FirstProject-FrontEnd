@@ -3,6 +3,7 @@ const popup = document.getElementById('popup');
 const closeBtn = document.getElementById('close');
 const submitBtn = document.getElementById('submit-pin');
 const kidUrl = "http://localhost:3000/tubekids/kids";
+const sessionUrl = "http://localhost:3000/tubekids/session";
 const userUrl = "http://localhost:3000/tubekids/users";
 
 const userId = localStorage.getItem("userId");
@@ -75,7 +76,7 @@ submitBtn.addEventListener("submit", async (e) => {
   }
   else {
       const res = await fetch(
-      kidUrl + "/compare/"+ profileId +"/" + enteredPIN, 
+      sessionUrl + "/kids/"+ profileId +"/" + enteredPIN, 
       {
           method: 'GET',
       });

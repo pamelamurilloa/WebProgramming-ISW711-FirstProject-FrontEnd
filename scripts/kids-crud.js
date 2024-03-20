@@ -33,7 +33,7 @@ const clearForm = () => {
 // Generate each card
 const generateProfileCards = async () => {
     const profileGrid = document.getElementById('profile-grid');
-    profileGrid.innerHTML = ''; // Clear existing content
+    profileGrid.innerHTML = '';
 
     try {
         const res = await fetch(
