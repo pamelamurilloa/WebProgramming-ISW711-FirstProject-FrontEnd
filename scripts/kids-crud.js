@@ -143,7 +143,6 @@ kidForm.addEventListener("submit", async (e) => {
 
 // Edits a profile
 const editProfile = async (profileId) => {
-    alert("Edit profile with ID: " + profileId);
 
     if (profileId) {
         const res = await fetch(
@@ -164,8 +163,16 @@ const editProfile = async (profileId) => {
 }
 
 // Deletes a profile
-const deleteProfile = (profileId) => {
-    alert("Delete profile with ID: " + profileId);
+const deleteProfile = async (profileId) => {
+
+    const res = await fetch(
+        apiUrl + "/" + profileId, 
+        {
+            method: 'DELETE',
+        }
+    )
+    console.log(res.json());
+    generateProfileCards();
 }
 
 // Add a profile
