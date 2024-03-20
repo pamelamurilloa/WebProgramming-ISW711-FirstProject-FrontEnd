@@ -28,3 +28,50 @@
     </div>
 </body>
 </html>
+<script>
+    const playlistUrl = "http://localhost:3000/tubekids/playlists";
+    const page = document.getElementsByClassName("page-content")[0];
+    let userId = localStorage.getItem("userId");
+
+    const populateFeed = async() => {
+
+        const res = await fetch (
+            playlistUrl + "/user/" + userId, 
+            {
+                method: 'GET'
+            }
+        );
+
+        const playlists = await res.json();
+        
+        const playlist = playlists.find(playlist=>playlist.name ==='General');
+
+        console.log(playlist);
+        page.innerHTML = "";
+
+        playlist.videos.forEach(video => {
+            const newVideo = document.createElement('div');
+            newVideo.classList.add("video-card");
+            // newVideo.innerHTML =
+            // `
+            // <iframe width="853" height="480" 
+            // src="https://www.youtube.com/embed/Nfm7x2TLUyU" title="Los Nuevos Programadores la Tienen DIFÍCIL si hacen esto…" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            // </iframe>
+
+            // `
+
+            newVideo.innerHTML =
+            `
+            <iframe width="853" height="480" 
+            src="${video.url}" title="${video.name}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+
+            `
+
+            page.append(newVideo);
+        })
+    };
+
+
+populateFeed();
+</script>
