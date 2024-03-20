@@ -66,11 +66,6 @@ const populateTable = async() => {
     };
 }
 
-// Initial population of the table
-populateSelect();
-populateTable();
-
-
 videoForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let playlistId = playlistSelect.value;
@@ -139,77 +134,8 @@ const deleteVideo = async (videoId) => {
     populateTable();
 }
 
-// // This will populate the playlist select, for now, there is only the playlist "general"
+// Initial population of the table
+populateSelect();
+populateTable();
 
-// // Event listener for changes in the playlist selection
-// playlistSelect.addEventListener('change', populateTable);
-
-
-// // <!-- <script>
-// // const baseUrl = 'http://localhost:3000/tubekids/videos/65e8cbd529c81399978e32d0'
-// // async function getInfo() {
-// //     const res = await fetch (baseUrl, {
-// //         method: 'GET'
-// //     })
-// //     console.log(res);
-// //     const data = await res.json();
-// //     console.log(data);
-// // }
-// // </script> -->
-
-// const url = 'http://localhost:3000/tubekids/playlists';
-
-// fetch(url, {
-//     method: 'GET',
-// })
-// .then(res => res.json())
-// .then(playlists => {
-
-//     for (let categoria of playlists) {
-//     let option = document.createElement("option");
-//     option.value = categoria.id;
-//     option.text = categoria.name;
-//     playlistSelect.add(option);
-//     }
-// })
-// .catch(function(error) {
-//     console.error("¡Error!", error);
-// })
-
-// // This will populate the table "video" with all the videos in the table
-// const populateTable = async () => {
-//     const selectedPlaylist = playlistSelect.value;
-//     const videosTable = document.getElementById('video-table')[0];
-//     videosTable.innerHTML = ''; // Clear existing table content
-
-
-//     const playlistArray = fetch(apiUrl)
-//     .then(response => {
-//         if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         videos = data;
-//     })
-//     .catch(error => {
-//         console.error('There was a problem with the fetch operation:', error);
-//     });
-
-//     // Populate the table with videos from the selected playlist
-//     playlists[selectedPlaylist].forEach(video => {
-//         const row = `<tr>
-//                     <td>${video.id}</td>
-//                     <td>${video.name}</td>
-//                     <td>${video.url}</td>
-//                     <td>
-//                         <a img="../utils/images/modify-icon.png" onclick="editVideo(video.id)" class="modify edit" alt="edit"></a>
-//                         <a img="../utils/images/delete-icon.png" onclick="deleteVideo(video.id)" class="modify delete" alt="delete"></a>
-//                     </td>
-//                     </tr>`;
-
-//         videosTable.insertAdjacentHTML('beforeend', row);
-//     });
-// }
 
