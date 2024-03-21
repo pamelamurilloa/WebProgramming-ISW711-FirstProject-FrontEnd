@@ -40,7 +40,8 @@ userForm.addEventListener("submit", async (e) => {
             }
         );
         
-        userId = res.json()._id;
+        const jsonResponse = await res.json()
+        const userId = jsonResponse._id
         
         res = await fetch (
             playlistUrl, 
@@ -53,7 +54,7 @@ userForm.addEventListener("submit", async (e) => {
             }
         );
 
-        console.log(await res.json());
+        window.location.href = "../pages/login.html";
 
     } else if (age < 18) {
         alert("You have to be over 18 to register in this site");
