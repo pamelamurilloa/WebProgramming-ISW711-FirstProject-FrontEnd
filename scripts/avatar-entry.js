@@ -8,6 +8,10 @@ const userUrl = "http://localhost:3000/tubekids/users";
 
 const userId = localStorage.getItem("userId");
 
+function isNumeric(value) {
+  return /^-?\d+$/.test(value);
+}
+
 // Generate each card
 const generateProfileCards = async () => {
   const profileGrid = document.getElementById('profile-grid');
@@ -67,7 +71,7 @@ submitBtn.addEventListener("submit", async (e) => {
   const status = popup.getAttribute('admin-status');
   const profilePin = localStorage.getItem("userPin");
 
-  if (status == "true") {
+  if (status == "true" && isNumeric(enteredPIN)) {
     if (enteredPIN == profilePin) {
       localStorage.setItem("admin", status);
       window.location.replace("administration.html");
@@ -75,7 +79,7 @@ submitBtn.addEventListener("submit", async (e) => {
       alert("Incorrect pin");
     }
   }
-  else {
+  else if (isNumeric(enteredPIN)) {
       const res = await fetch(
       sessionUrl + "/kids/"+ profileId +"/" + enteredPIN, 
       {

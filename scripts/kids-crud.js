@@ -51,7 +51,7 @@ const generateProfileCards = async () => {
                 profileCard.classList.add('profile');
                 profileCard.innerHTML = `
                     <div class="profile" id="${profile._id}">
-                        <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar">
+                        <img src="../utils/images/profile${profile.avatar}.png" alt="Profile Avatar" onclick="editProfile('${profile._id}')">
                         <div class="under-image">
                             <h3 class="profile-name">${profile.name}</h3>
                             <div class="profile-actions">
@@ -86,11 +86,15 @@ const generateProfileCards = async () => {
     profileGrid.appendChild(addProfileCard);
 }
 
+function isNumeric(value) {
+    return /^-?\d+$/.test(value);
+  }
 
+  
 kidForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (title.innerHTML == "Register a child" && nameInput.value != "" && pinInput.value != "" && ageInput.value != "") {
+    if (title.innerHTML == "Register a child" && nameInput.value != "" && isNumeric(pinInput.value) && ageInput.value != "") {
         let imgNumberMatch = /(\d+)(?=\D*$)/.exec(profileImage.src);
         let avatar = imgNumberMatch[1];
 
@@ -218,12 +222,4 @@ nextImage.addEventListener('click', function(event) {
     }
 });
 
-// // Function to handle form submission
-// const handleSubmit = () => {
-//     const selectedImageId = currentImageIndex + 1;
-//     alert(`Selected Image ID: ${selectedImageId}`);
-    
-// }
-
-// Updating when the page loads
 generateProfileCards();

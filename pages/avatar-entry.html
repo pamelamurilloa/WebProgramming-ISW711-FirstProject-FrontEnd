@@ -28,14 +28,12 @@
     <div class="page-content">
         <div class="profiles" id="profile-grid">
         </div>
-
-
           <div class="popup" id="popup">
             <div class="popup-content">
               <h2>Introduce your pin</h2>
                 <form id="submit-pin">
                     <!-- <label for="pin">Pin</label> -->
-                    <input class="input-form password" type="text" id="pin" maxlength="6" name="pin" placeholder="pin" required>
+                    <input class="input-form password" type="text" id="pin" maxlength="6" minlength="6" name="pin" placeholder="pin" required>
 
                     <input  class="main-button" type="submit" value="Confirm">
                     <a id="close" class="main-button">Go Back</a>
